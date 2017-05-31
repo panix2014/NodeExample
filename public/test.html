@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>测试接口列表</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>  
+<div class="mt20 mb20 tc">
+    
+    <button type="button" name="button" class="btn btn-default" onclick="savemycenter()">保存个人中心</button>
+</div>
+
+<script type="text/javascript">
+
+/*
+保存个人中心
+*/   
+      var urlconfig = 'http://10.10.10.102:3000';
+         function savemycenter() { 
+        $.ajax({
+            url: urlconfig+'/mycenter/save',
+            type: 'POST',
+            traditional: true,  
+            dataType: 'json',
+            data: {
+                name: 'testuser5'
+            },
+            success: function (res) {
+                if (res.code == 200) {
+                   console.log(res.mes)
+                } else if(res.code == 201){
+                   console.log(res.mes)
+                }
+                else{
+                    console.log('哈哈');
+                }
+            }
+        });
+    }
+
+</script>
+</body>
+</html>
